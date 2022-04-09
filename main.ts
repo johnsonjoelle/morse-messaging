@@ -7,22 +7,23 @@ radio.onReceivedNumber(function (receivedNumber) {
         basic.showLeds(`
             . . . . .
             . . . . .
-            . . # # .
-            . . # # .
+            . . . . .
+            . . # . .
             . . . . .
             `)
-        music.playTone(262, music.beat(BeatFraction.Whole))
+        music.playTone(262, music.beat(BeatFraction.Quarter))
     } else if (receivedNumber == 1) {
         basic.showLeds(`
             . . . . .
             . . . . .
+            . . . . .
             . # # # .
             . . . . .
-            . . . . .
             `)
-        music.playTone(262, music.beat(BeatFraction.Double))
+        music.playTone(262, music.beat(BeatFraction.Whole))
     } else {
         basic.clearScreen()
+        letter = receivedMsg
     }
 })
 input.onButtonPressed(Button.A, function () {
@@ -31,8 +32,8 @@ input.onButtonPressed(Button.A, function () {
     basic.showLeds(`
         . . . . .
         . . . . .
-        . . # # .
-        . . # # .
+        . . . . .
+        . . # . .
         . . . . .
         `)
 })
@@ -42,8 +43,8 @@ input.onButtonPressed(Button.B, function () {
     basic.showLeds(`
         . . . . .
         . . . . .
-        . # # # .
         . . . . .
+        . # # # .
         . . . . .
         `)
 })
@@ -53,6 +54,7 @@ input.onLogoEvent(TouchButtonEvent.Pressed, function () {
     radio.sendNumber(msg)
 })
 let msg = 0
+let letter: number[] = []
 let dot = "."
 let dash = "-"
 radio.setGroup(49)
@@ -68,10 +70,11 @@ basic.pause(2000)
 basic.showLeds(`
     . . . . .
     . . . . .
-    . . # # .
-    . . # # .
+    . . . . .
+    . . # . .
     . . . . .
     `)
+music.playTone(262, music.beat(BeatFraction.Quarter))
 basic.pause(2000)
 basic.showLeds(`
     . . # . .
@@ -84,10 +87,11 @@ basic.pause(2000)
 basic.showLeds(`
     . . . . .
     . . . . .
+    . . . . .
     . # # # .
     . . . . .
-    . . . . .
     `)
+music.playTone(262, music.beat(BeatFraction.Whole))
 basic.pause(2000)
 basic.showLeds(`
     . . # . .
