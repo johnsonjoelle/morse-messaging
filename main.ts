@@ -1,6 +1,11 @@
 input.onLogoEvent(TouchButtonEvent.LongPressed, function () {
-    translate = true
-    basic.showString("translate on")
+    if (translate == false) {
+        translate = true
+        basic.showString("translate on")
+    } else {
+        translate = false
+        basic.showString("translate off")
+    }
 })
 input.onButtonPressed(Button.A, function () {
     letter = "0"
